@@ -1,3 +1,39 @@
+document.addEventListener("DOMContentLoaded", function () {
+  var swiper = new Swiper(".slide-content", {
+    slidesPerView: 3,
+    spaceBetween: 40,
+    slidesPerGroup: 3,
+    centerSlide:'true',
+    fade:'true',
+    loop: false,
+    gragCursor: 'true',
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets:true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints:{
+    0:{
+      slidesPerView:1,
+      slidesPerGroup: 1,
+      spaceBetween: 30,
+    },
+    520:{
+      slidesPerView:2,
+      spaceBetween: 30,
+    },
+    950:{
+      slidesPerView:3,
+    }
+  }
+  });
+});
+
 const urlApi = 'https://fakestoreapi.com/products/categories';
 
 

@@ -13,6 +13,7 @@
     --white:#fff;
     --gray-light: rgb(161, 158, 158);
     --red-first:#DB4444;
+    --red-second:#ac3737;
 }
 .header-top{
     position: relative;
@@ -102,9 +103,7 @@
     text-align: center;
     padding:10px;
 }
-.header-menu{
 
-}
 
 .navbar-list {
     list-style-type: none;
@@ -123,6 +122,12 @@
 
 .navbar-list{
     height: 100%;  
+}
+.navbar-item a{
+   &:hover{
+    
+    color:var(--red-first);
+   }
 }
 .header-msg span{
     font-size: 20px;
@@ -183,7 +188,8 @@
 /* menu de categoria */ /* menu de categoria *//* menu de categoria *//* menu de categoria */
 
 .section-categoria{
-    height: 300px;
+    height: 435px;
+    background-color: ;
    
 }
 .section-mensagem{
@@ -210,8 +216,7 @@
 
 .section-mensagem svg{
     margin-right:10px;
-
-    
+  
 }
 
 .section-categoria-itens{
@@ -237,6 +242,7 @@
    flex-direction: column; 
    border-radius: 6px;
    transition: all .2s ease;
+   cursor: pointer;
 
    &:hover{
         background-color: var(--red-first);
@@ -259,8 +265,166 @@
     filter: invert(100%) brightness(200%);
 }
 
+/* produtos carrosel *//* produtos carrosel *//* produtos carrosel *//* produtos carrosel *//* produtos carrosel *//* produtos carrosel */
+/* produtos carrosel *//* produtos carrosel *//* produtos carrosel *//* produtos carrosel *//* produtos carrosel *//* produtos carrosel */
 
-@media (max-width: 768px) {
+.produtos-carrosel{
+    margin-bottom:100px;
+    height: 1000px;
+    
+    
+}
+
+.produto-mensagem{
+    padding:30px;
+    gap:35px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center; 
+   
+}
+
+.produto-mensagem span{
+    font-weight: 600;
+    color:var(--red-first);
+    
+}
+
+.produto-mensagem h3 {
+    font-weight: 600;
+}
+
+.produto-mensagem svg{
+    margin-right:10px;
+  
+}
+
+/* carrousel *//* carrousel *//* carrousel *//* carrousel *//* carrousel *//* carrousel *//* carrousel *//* carrousel */
+/* carrousel *//* carrousel *//* carrousel *//* carrousel *//* carrousel *//* carrousel *//* carrousel *//* carrousel */
+.slide-container{
+    max-width: 1120px;
+    width: 100%;
+    background-color: #efefef;
+    padding: 40px 0px;
+    
+   
+}
+
+
+.slide-content{
+    
+    margin: 0 20px;
+width: 100%;
+overflow: hidden;
+padding: 20px 20px;
+
+}
+
+.card1{
+    max-width: 320px !important;
+    border-radius: 25px  !important;
+    background-color: var(--white);
+    border: none !important;
+}
+
+.image-content, .card-content{
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.image-content{
+    position: relative;
+    row-gap: 5px;
+    border-radius:50%;
+   padding: 25px 0; 
+}
+.card-image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #fff;
+    
+    padding: 3px;
+
+    }
+
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--red-first);
+    border-radius: 25px 25px 0 25px;
+}
+.overlay::before,
+.overlay::after{
+    position: absolute;
+    right: 0;
+    bottom:-40px;
+    content: '';
+    height: 40px;
+    width: 40px;
+    background-color: var(--red-first);
+    
+}
+
+.overlay::after{
+    border-radius: 0 25px 0 0 ;
+    background-color:white;
+}
+
+.card-image .card-img{
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+    border: 2px solid var(--red-first);
+   
+}
+
+.name{
+    font-size: 18px;
+    font-weight: 500;
+    color:#333;
+
+}
+
+.description{
+    font-size: 14px;
+    color:#707070;
+    text-align: center;
+}
+.button{
+    border:none;
+    font-size: 16px;
+    color:#fff;
+    padding: 8px 16px;
+    background-color: var(--red-first);
+    border-radius: 6px;
+    margin:14px;
+    cursor: pointer;
+    transition: all .3s ease;
+&:hover{
+    background-color: var(--red-second);
+}
+}
+
+.swiper-button-next{
+    color:black;}
+.swiper-navBtn{
+   
+}
+.swiper-pagination-bullet{
+    color: var(--red-first);
+}
+
+
+
+
+@media screen and  (max-width: 768px) {
 
     .header-container{
         height:200px;
@@ -314,21 +478,28 @@
         border-radius:10px;
     
     }
+  
+    .slide-content{
+        margin: 0 10px;
+    }
     
-    
+    .swiper-button-next{
+        display: none;
+    }
   
 
 }
 
+
 @media (max-width: 500px) {
 
-    .section-categoria-itens{
+    .section-categoria-itens {
         width: 100%;
-       
         flex-wrap: wrap;
-      
-    
     }
 
-
+    .categoria-item {
+     
+        margin-bottom: 10px;
+    }
 }
