@@ -20,7 +20,7 @@
     height: 40px;
     background-color: var(--black);
     display: flex;
-    color: var(--white);
+    color: #FAFAFA;
     font-size: 14px; 
     justify-content: center;
     align-items: center   
@@ -241,6 +241,7 @@
    &:hover{
         background-color: var(--red-first);
         color:white;
+        border:none;
         
    }
    
