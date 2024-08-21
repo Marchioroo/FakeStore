@@ -12,7 +12,7 @@ fetch(urlApi)
   }) .then(data => {
     console.log('Dados recebidos da API:', data);
     data.forEach(element => {
-        console.log(element.image)
+        console.log(element)
     
    });
   })
