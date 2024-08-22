@@ -34,24 +34,63 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const urlApi = 'https://fakestoreapi.com/products/categories';
+const urlApi = 'https://fakestoreapi.com/products';
+
+// Função para tratar os dados recebidos da API
+function processarDados(data) {
+    console.log('Dados recebidos da API:', data);
+    let card = document.getElementsByClassName('card-wrapper');
+    let cardAtual = card[0];
+    
+
+    data.forEach(element => {
+      cardAtual.innerHTML += 
+      `<div class="card1 swiper-slide">
+                                <div class="image-content">
+                                    <span class="overlay"> </span>
+                                    <div class="card-image">
+                                        <img src="${element.image}" class="card-img" alt="">
+                                    </div>
+
+                                </div>
+                                <div class="card-content">
+                                    <div class="rating">
+                                        <input type="radio" name="star" id="star5"><label for="star5">★</label>
+                                        <input type="radio" name="star" id="star4"><label for="star4">★</label>
+                                        <input type="radio" name="star" id="star3"><label for="star3">★</label>
+                                        <input type="radio" name="star" id="star2"><label for="star2">★</label>
+                                        <input type="radio" name="star" id="star1"><label for="star1">★</label>
+                                    </div>
+                                    <h2 class="name">${element.title}</h2>
+                                    <p class="description">R$${element.price}</p>
+                                    <button class="button"> Comprar </button>
+                                </div>
+                            </div>`
+    });
+}
 
 
-fetch(urlApi) 
- .then(response => {
+function tratarErro(error) {
+    console.error('Erro ao consumir a API:', error);
+}
+
+fetch(urlApi)
+  .then(response => {
     if (!response.ok) {
       throw new Error('Erro na requisição: ' + response.status);
     }
-    return response.json(); 
-    
-    // Converte a resposta em JSON
-  }) .then(data => {
-    console.log('Dados recebidos da API:', data);
-    data.forEach(element => {
-        console.log(element)
-    
-   });
+    return response.json(); // Converte a resposta em JSON
   })
-  .catch(error => {
-    console.error('Erro ao consumir a API:', error);
-  });
+  .then(processarDados)  
+  .catch(tratarErro);     
+
+
+  let categoria = () => {
+    
+  
+
+}
+
+  categoria();
+
+ 
