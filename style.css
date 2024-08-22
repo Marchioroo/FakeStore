@@ -36,7 +36,7 @@
   
 }
 .header-top .singUp{
-  
+  cursor: pointer;
   position: absolute;
   right: 0;
   padding:10px;
@@ -206,6 +206,7 @@
 
 .section-mensagem span{
     font-weight: 600;
+    
     color:var(--red-first);
     
 }
@@ -253,6 +254,11 @@
    
 
 }
+
+.categoria-item span{
+   
+
+}
 .categoria-img img{
     width: 30%;
     margin-bottom:10px;
@@ -287,6 +293,7 @@
 .produto-mensagem span{
     font-weight: 600;
     color:var(--red-first);
+    
     
 }
 
@@ -351,6 +358,14 @@ padding:40px;
     background-color: #fff; 
     padding: 3px;
 
+    }
+
+.card1 #id{
+display: none;
+    }
+
+    .card1 {
+        margin: 20px;
     }
 
 .overlay{
@@ -572,6 +587,7 @@ footer {
         border-radius:10px;
     
     }
+    
   
     .slide-content{
         margin: 0 10px;
