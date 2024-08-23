@@ -64,7 +64,7 @@ function processarDados(data) {
                                     </div>
                                     <h2 class="name">${element.title}</h2>
                                     <p class="description">R$${element.price}</p>
-                                    <button class="button"> Comprar </button>
+                                    <button class="button"> Detalhes </button>
                                 </div>
                             </div>`
   });
@@ -109,7 +109,7 @@ function processarDados(data) {
                                   </div>
                                   <h2 class="name">${elemento.title}</h2>
                                   <p class="description">R$${elemento.price}</p>
-                                  <button class="button"> Comprar </button>
+                                  <button class="button"> Detalhes </button>
                               </div>
                           </div>`
                       
