@@ -10,6 +10,7 @@
       loadLoadingScreen();
     });
   }
+
   // ====================AQUI TERMINA O LOADING AO CLICAR NO BOTÃO SingUp ====================
   let home = document.getElementById('home');
   if (home) {
@@ -22,7 +23,8 @@
     });
   }
 
-  
+  // ====================AQUI TERMINA O LOADING AO CLICAR NO BOTÃO SingUp ====================
+ 
 
 
   // ====================FUNÇÃO PRINCIPAL PARA CHAMAR O ARQUIVO HTML DE LOADING ====================
