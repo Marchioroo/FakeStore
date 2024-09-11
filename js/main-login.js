@@ -54,7 +54,9 @@ form.addEventListener('submit', (event) => {
         if (!usuarioExistente) {
             let novoUsuario = {
                 user: loginInput.value,
+                email: emailInput.value,
                 senha: passInput.value
+                
             };
 
 
