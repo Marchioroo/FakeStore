@@ -61,23 +61,117 @@ html, body {
     width: 100%;
     height: 90vh; 
     color:white;
-    
-   
+    visibility: visible;
 }
-.box{
-    display: flex;
+/* Container que centraliza o conteúdo */
+
+.container-success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px); 
+    z-index: 9999; 
+    transition: opacity 0.9s ease, visibility 0.9s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Server para que voce nao consiga digitar no elemrnto */
+}
+
+.container-success.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all; 
+}
+
+
+/* Box principal */
+.box {
     width: 300px;
-    height:370px;
     background-color: var(--red-first);
     border-radius: 5px;
-    padding:30px;
+    padding: 30px;
     box-shadow: 0px 4px 8px 0px rgba(255, 0, 0, 0.75);
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    opacity: 1;
+    visibility: visible;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Box de cadastro */
+.box-cadastro {
+    width: 300px;
+    background-color: var(--red-first);
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 0px 4px 8px 0px rgba(255, 0, 0, 0.75);
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box-success{  
+    width: 100%;
+    min-height: 120px;
+    background-color: var(--white);
+    border-radius: 5px;
+    padding: 30px;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    opacity: 1;
+    visibility: visible;
+    color: var(--red-second);
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+}
+
+/* Oculta com fade-out */
+.box.disabled {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Exibe com fade-in */
+.box-cadastro.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#button-yes, #button-no{
+    margin-top:15px;
+    padding:6px 15px 6px 15px;
+    border-radius:5px;
+    background-color: var(--red-first);
+    color:white;
+    cursor: pointer;
+    transition:  all .1s ease-in-out;
+    &:hover{
+        background-color: var(--red-second);
+    }
 }
 .title{
     width: 100%;
    text-align: center;
    font-size: 24px;
    font-weight: 500;
+}
+
+.title h5{
+    font-size: 18px;
 }
 
 .login{

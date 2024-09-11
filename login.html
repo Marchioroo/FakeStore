@@ -18,34 +18,79 @@
 <body>
 
     <div class="header-top">
-        <span>Marchioro Shop</span>
+        <span>
+            <center>Marchioro Shop</center>
+        </span>
         <div class="home" id="home"><a href="#">Home</a></div>
     </div>
     <div class="container">
         <div class="container-box d-flex justify-contento-center">
-            <div class="box col-md-4 col-12 d-flex flex-column">
+            <div class="box col-md-4 col-11 d-flex flex-column ">
                 <div class="title col-md-12 col-12">Acesse agora!</div>
 
                 <form action="adm.html" method="POST">
                     <div class="login d-flex flex-column col-md-12 col-12">
                         <label for="loginForm">Login</label>
                         <input type="text" class="loginForm" id="loginForm" required>
-                
+
                         <label for="passForm">Senha</label>
                         <input type="password" class="passForm" id="passForm" required>
-                
+
                         <button class="button" type="submit">Entrar</button>
                         <span class="signIn">
-                            <a href="#">Cadastrar</a>
+                            <a id="cadastrar" href="#">Cadastrar</a>
                         </span>
                     </div>
                 </form>
 
             </div>
+
+            <!-- cadastro --> <!-- cadastro --> <!-- cadastro -->
+            <div class="box-cadastro col-md-5 col-11">
+                <div class="title col-md-12 col-12">Cadastre-se agora!</div>
+
+                <form id="cadLoginForm" action="#" method="POST">
+                    <div class="login d-flex flex-column col-md-12 col-12">
+                        <label for="cadUser">Usuário</label>
+                        <input type="text" class="cadUser" id="cadUser" required>
+
+                        <label for="cadEmail">E-mail</label>
+                        <input type="email" class="cadEmail" id="cadEmail" required>
+
+                        <label for="cadPass">Senha</label>
+                        <input type="password" class="cadPass" id="cadPass" required>
+
+                        <button class="button" type="submit">Cadastrar</button>
+                        <span class="signIn">
+                            <a id="voltar" href="#">Voltar</a>
+                        </span>
+                    </div>
+                </form>
+
+            </div>
+            <div class="container-success">
+                <div class="box-success col-md-3 col-10">
+                    <div class="title col-md-12 col-12">
+                        <h5>Cadastro efetuado com sucesso!</h5>
+                    </div>
+                    <div class="buttons-success d-flex flex-row justify-content-evenly">
+                        <div id="button-yes">Login</div>
+                        <div id="button-no"> Voltar</div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
         </div>
+
+
     </div>
 
+
     <script src="js/main-loading.js"></script>
+    <script src="js/main-login.js"></script>
 </body>
 
 </html>
