@@ -207,6 +207,7 @@ body {
 
 /* Após a animação de opacidade terminar, alterar a visibilidade */
 .boxes.hidden {
+    pointer-events: none;
     visibility: hidden;
 }
 
@@ -253,9 +254,9 @@ body {
  }
 
  .row-informations{
-    visibility: none;
+    width: 100%;
     pointer-events: none;
-    opacity: 0;
+    opacity: 1;
     position: absolute;
     top:80px;
     padding:12px;
@@ -265,20 +266,64 @@ body {
  .row-informations .titleVoltar{
     font-size: 16px;
     padding: 12px 20px 0px 0px;
-    width: 54px;
     margin-bottom:20px;
+    width: 54px;
+    opacity: 0;
     font-weight: 600;
     color:var(--red-first);
     position: relative;
-   
     cursor: pointer;
+    transition: opacity 0.2s ease; /* A opacidade será animada */
+
 }
-.row-informations.active{
+.titleVoltar.active{
+    transition: opacity 0.2s ease; /* A opacidade será animada */
+    opacity: 1;
+
+}
+
+.tables{
+    width: 100%;  
+    pointer-events: none;
+    opacity: 0;  
+    transition: opacity 0.2s ease; /* A opacidade será animada */
+}
+
+.tables.active{
     pointer-events: all;
     opacity: 1;
     transition: opacity 0.2s ease; /* A opacidade será animada */
 }
 
+.titleCadastrar{
+    font-size: 16px;
+    padding: 12px 0px 0px 0px;
+    margin-bottom:20px;
+    font-weight: 600;
+    visibility: hidden;
+    width: 85px;
+    color:var(--red-first);
+    position: relative;
+    cursor: pointer;
+
+}
+.titleCadastrar.active{
+    visibility: visible;
+
+}
+
+.row-informations.active{
+    pointer-events: all;
+    opacity: 1;
+    transition: opacity 0.2s ease; /* A opacidade será animada */
+}
+.informacoes{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; 
+}
 .row-informations .titleVoltar::after {
     content: '';
     position: absolute;
@@ -290,7 +335,27 @@ body {
     transition: width 0.3s ease;
 }
 
+.row-informations .titleCadastrar::after {
+
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--red-first);
+    transition: width 0.3s ease;
+
+}
+.acoes{
+    display: block;
+}
+
 .row-informations .titleVoltar:hover::after {
+    width: 100%; /* Faz a borda expandir para a direita */
+}
+
+.row-informations .titleCadastrar:hover::after {
     width: 100%; /* Faz a borda expandir para a direita */
 }
 .buttonDelete{
@@ -319,11 +384,23 @@ body {
     .email{
         display: none;
     }
+    .acoes{
+        display: none;
+    }
 
     .table{
-        width: 84vw !important;
+        width: 86vw !important;
     }
 
     .boxes{
-        margin:10px !important;}
+        margin:10px !important;
+    }
+
+    .informacoes{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 89%; 
+    }
 }
