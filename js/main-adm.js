@@ -82,7 +82,7 @@ function buscarProdutos() {
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col" class="email">Valor</th>
-                    <th scope="col">Categoria</th>
+                    <th scope="col" class="categoria" >Categoria</th>
                     <th scope="col" class="acoes">Ações</th>
                 </tr>
             </thead>
@@ -108,26 +108,26 @@ function buscarProdutos() {
 
 
         tables.innerHTML = tableContent;
-        
-        document.querySelectorAll('#produtoDelete').forEach(element =>{
-            element.addEventListener('click', (e)=>{
+
+        document.querySelectorAll('#produtoDelete').forEach(element => {
+            element.addEventListener('click', (e) => {
                 let row = e.target.closest('tr');
-                
+
                 let id = row.querySelector('.idProduto');
                 let idProduto = id.textContent;
-                
+
 
                 removerProduto(idProduto);
                 row.remove();
-                
-                
+
+
             })
         })
-        
+
 
     }
 
-  
+
 
 }
 
@@ -144,13 +144,181 @@ function removerProduto(productId) {
         })
         .then(data => {
             console.log('Produto removido:', data);
-            
+
         })
         .catch(error => {
             console.error('Erro:', error);
         });
 
+
+
+}
+
+
+function buscarClientes() {
+    const urlApi = 'https://fakestoreapi.com/users';
+
+    fetch(urlApi)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro na requisição: ' + response.status);
+            }
+
+            return response.json(); // Converte a resposta em JSON
+
+        })
+        .then(processarDados) // Chama a função processarDados com os dados
+        .catch(tratarErro);
+
+    function processarDados(data) {
+        console.log(data);
+        const tables = document.querySelector('.tables');
+        tables.classList.add('active');
+
+        let tableContent = `
+        <table class="table tableColapse table-hover table-danger col-md-12 col-12 ">
+            <thead class="thead">
+                <tr>
+                    <th scope="col" class="idUser">#</th>
+                    <th scope="col">Usuário</th>
+                    <th scope="col" class="name">Nome</th>
+                    <th scope="col" class="emailColapse">E-mail</th>
+                    
+                    <th scope="col" class="acoes d-flex justify-content-between">
+
+                        <span class="phone"> Telefone </span> 
+                        <span class="action"> Ação </span>
+
+                    </th>
+                    
+                </tr>
+            </thead>
+            <tbody>`;
+
+        // Loop através dos dados e criar linhas da tabela com funcionalidade de expansão
+        data.forEach((data, index) => {
+            tableContent += `
+                <tr>
+                    <th scope="row" class="idUser">${data.id}</th>
+                    <td class="user">${data.username}</td>
+                    <td class="name">${data.name.firstname} ${data.name.lastname}</td>
+                    <td class="emailColapse">${data.email}</td>
+
+                    <td class="phone d-flex justify-content-between">
+
+                        <span class="phone">${data.phone} </span> 
+                        <span  class="action"> <span class="action"><i class="ri-arrow-down-s-fill"></i></span> 
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <div class="collapse" col-md-12 col-12 id="collapse${index}">
+                            <div class="p-3 bg-light">
+                            <div class="titleTable d-flex flex-row justify-content-between">
+                                <strong>Detalhes adicionais do cliente</strong> 
+                                <div class="buttonDelete" id="buttonEdit"> Editar </div>
+                            </div>
+                                
+
+                                <div class="box-table d-flex col-md-12 col-11 justify-content-around">
+
+                                    <div class="first">
+                                        <p><span  class="idCliente" id="idCliente"> ${data.id} </span></p>
+                                        <p><strong>Nome:</strong> <span id="editName"> ${data.name.firstname} ${data.name.lastname}<span></p>
+                                        <p><strong>E-mail:</strong><span id="editEmail">${data.email} <span></p>
+                                        <p id="editPassword"><strong>Senha:</strong> ${data.password}/p>
+                                    </div>
+
+                                    <div class="second">
+                                        <p id="editCidade"><strong>Cidade:</strong> ${data.address.city}</p>
+                                        <p id="editRua"><strong>Rua: </strong>${data.address.street}  ${data.address.zipcode}</p>
+                                        <p><strong>Número:</strong> <span id="editNumero">${data.address.number}<span></p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        });
+
+        tableContent += `
+            </tbody>
+        </table>`;
+
+        tables.innerHTML = tableContent;
+        editarRua();
+
+        const buttonEdit = document.querySelectorAll('#buttonEdit');
+        buttonEdit.forEach(bnt => {
+            bnt.addEventListener('click', (e) => {
+                let row = e.target.closest('tr');
+            
+                let idCliente = row.querySelector('#idCliente');
+                let id = idCliente.innerText;
+
+                
+            
+                });
+        });
        
+
+
+
+        const rows = document.querySelectorAll('.table tbody tr:nth-child(odd)');
+        rows.forEach((row, index) => {
+            row.addEventListener('click', function () {
+                const collapseElement = document.getElementById(`collapse${index}`);
+                const bsCollapse = new bootstrap.Collapse(collapseElement, {
+                    toggle: true
+                });
+            });
+        });
+
+    }
+
+
+
+}
+
+function editarRua() {
+
+    const buttonEdit = document.querySelectorAll('#buttonEdit');
+    buttonEdit.forEach(bnt => {
+        bnt.addEventListener('click', (e) => {
+            let row = e.target.closest('tr');
+            console.log(row);
+
+            let editNumero = row.querySelector('#editNumero');
+            
+            
+            valorAtual = editNumero.innerText;
+            console.log(valorAtual)
+            editNumero.innerHTML = `<input type="text" class="inputEditNumero" id="inputEditNumero" value="${valorAtual}" />`;
+
+            const inputEditNumero = row.querySelector('#inputEditNumero');
+            console.log(inputEditNumero)
+
+            // Quando o usuário pressiona a tecla "Enter" ou sai do campo de entrada
+            inputEditNumero.addEventListener('blur', () => {
+                let newValue = inputEditNumero.value;
+                console.log(newValue)
+
+                editNumero.innerHTML = newValue;
+
+            });
+
+            inputEditNumero.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') {
+                    inputEditNumero.blur();  // Simula a perda de foco para salvar o valor
+                }
+            });
+
+        })
+    })
 
 }
 
@@ -161,7 +329,6 @@ box.forEach(element => {
         const boxes = document.getElementsByClassName('boxes');
         const botaoCadastrar = document.getElementsByClassName('titleCadastrar');
         const tables = document.querySelector('.tables');
-        console.log(botaoCadastrar)
         console.log(element.id);
 
         //////////////////////// usuarios /////////////////////////////////
@@ -217,7 +384,7 @@ box.forEach(element => {
 
             if (buttonDelete) {
                 buttonDelete.forEach(button => {
-                    
+
                     button.addEventListener('click', (e) => {
                         const row = e.target.closest('tr'); // 'tr' onde o botão foi clicado
                         console.log(row)
@@ -257,7 +424,8 @@ box.forEach(element => {
             botaoCadastrar[0].classList.add('active');
             rowInformations.classList.add('active');
 
-            
+            buscarClientes();
+
 
         }
 

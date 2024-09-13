@@ -365,7 +365,42 @@ body {
         color:var(--red-first);
     }
 }
+.idCliente{
+    display:none !important;
+    
+}
 
+.phone i{
+margin-right: 20px;    
+}
+
+.box-table{ 
+   margin-top:10px;
+
+}
+.inputEditNumero{
+    outline: none;
+    border:1px solid var(--red-first);
+    border-radius:3px;
+    max-width: 50px;
+    padding:1px 1px 1px 4px;
+}
+
+
+.action{
+    margin-right:10px;
+}
+
+.first, .second{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius:10px;
+    padding:10px 10px 0px 20px;
+    background-color: rgb(241, 231, 231);
+    margin:10px;
+}
 
 @media screen and (max-width: 540px) {
    
@@ -384,23 +419,59 @@ body {
     .email{
         display: none;
     }
-    .acoes{
+
+    .idUser{
+        display: none;
+
+    }
+    .categoria{
         display: none;
     }
+    .name{
+        display: none;
 
-    .table{
-        width: 86vw !important;
     }
-
+    .phone{
+        display: none !important;
+    }
+    
+.tableColapse{
+    width: 70% !important;
+}
+    
     .boxes{
         margin:10px !important;
     }
 
+    .box-table{
+        width: 100%;
+        flex-direction: column !important;
+        
+    }
+
+    .row-informations, .body, .row-boxes    {
+        padding:0 !important;
+        margin:0 !important;
+    }
+    .titleCadastrar {
+        
+    }
+
+    .
+    .row-informations{
+       
+        padding: 10px 10px 10px 10px !important;
+        margin:0 !important;
+        
+    }
+
     .informacoes{
-        display:flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 89%; 
+        
+
+    }
+
+    .container-fluid .row{
+        width: 100% !important;
+
     }
 }
