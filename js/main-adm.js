@@ -231,8 +231,8 @@ function buscarClientes() {
                                     </div>
 
                                     <div class="second">
-                                        <p id="editCidade"><strong>Cidade:</strong> ${data.address.city}</p>
-                                        <p id="editRua"><strong>Rua: </strong>${data.address.street}  ${data.address.zipcode}</p>
+                                        <p><strong>Cidade:</strong> <span id="editCidade"> ${data.address.city} </span></p>
+                                        <p><strong>Rua: </strong> <span id="editRua">${data.address.street} <span> ${data.address.zipcode}</p>
                                         <p><strong>Número:</strong> <span id="editNumero">${data.address.number}<span></p>
                                     </div>
 
@@ -250,21 +250,22 @@ function buscarClientes() {
         </table>`;
 
         tables.innerHTML = tableContent;
-        editarRua();
+
+        editarCliente();
 
         const buttonEdit = document.querySelectorAll('#buttonEdit');
         buttonEdit.forEach(bnt => {
             bnt.addEventListener('click', (e) => {
                 let row = e.target.closest('tr');
-            
+
                 let idCliente = row.querySelector('#idCliente');
                 let id = idCliente.innerText;
 
-                
-            
-                });
+
+
+            });
         });
-       
+
 
 
 
@@ -284,43 +285,59 @@ function buscarClientes() {
 
 }
 
-function editarRua() {
-
+function editarCliente() {
     const buttonEdit = document.querySelectorAll('#buttonEdit');
+
     buttonEdit.forEach(bnt => {
         bnt.addEventListener('click', (e) => {
             let row = e.target.closest('tr');
-            console.log(row);
 
             let editNumero = row.querySelector('#editNumero');
-            
-            
-            valorAtual = editNumero.innerText;
-            console.log(valorAtual)
-            editNumero.innerHTML = `<input type="text" class="inputEditNumero" id="inputEditNumero" value="${valorAtual}" />`;
+            let editName = row.querySelector('#editName');
+            let editCidade = row.querySelector('#editCidade');
+            let editAdress = row.querySelector('#editRua');
 
-            const inputEditNumero = row.querySelector('#inputEditNumero');
-            console.log(inputEditNumero)
+            let valorRua = editNumero.innerText;
+            let valorName = editName.innerText;
+            let valorCidade = editCidade.innerText;
+            let valorAdress = editAdress.innerText;
 
-            // Quando o usuário pressiona a tecla "Enter" ou sai do campo de entrada
-            inputEditNumero.addEventListener('blur', () => {
-                let newValue = inputEditNumero.value;
-                console.log(newValue)
+            // Criação dos inputs com IDs únicos
+            editName.innerHTML = `<input type="text" class="inputEditName" id="inputEditName_${row.rowIndex}" value="${valorName}" />`;
+            editNumero.innerHTML = `<input type="text" class="inputEditNumero" id="inputEditNumero_${row.rowIndex}" value="${valorRua}" />`;
+            editCidade.innerHTML = `<input type="text" class="inputEditCidade" id="inputEditCidade_${row.rowIndex}" value="${valorCidade}" />`;
+            editAdress.innerHTML = `<input type="text" class="inputEditAdress" id="inputEditAdress_${row.rowIndex}" value="${valorAdress}" />`;
 
-                editNumero.innerHTML = newValue;
+            // Selecionar os inputs recém-criados
+            const inputEditNumero = row.querySelector(`#inputEditNumero_${row.rowIndex}`);
+            const inputEditName = row.querySelector(`#inputEditName_${row.rowIndex}`);
+            const inputEditCidade = row.querySelector(`#inputEditCidade_${row.rowIndex}`);
+            const inputEditAdress = row.querySelector(`#inputEditAdress_${row.rowIndex}`);
 
-            });
+            // Função genérica para adicionar eventos de blur e keypress
+            const aplicarListeners = (inputField, editField) => {
+                inputField.addEventListener('blur', () => {
+                    let newValue = inputField.value;
+                    editField.innerHTML = newValue;  // Atualiza o valor na célula original
+                });
 
-            inputEditNumero.addEventListener('keypress', (event) => {
-                if (event.key === 'Enter') {
-                    inputEditNumero.blur();  // Simula a perda de foco para salvar o valor
-                }
-            });
+                inputField.addEventListener('keypress', (event) => {
+                    if (event.key === 'Enter') {
+                        inputField.blur();  // Simula perda de foco ao pressionar "Enter"
+                    }
+                });
+            };
 
-        })
-    })
-
+            // Aplicar a função para cada campo
+            aplicarListeners(inputEditNumero, editNumero);
+            aplicarListeners(inputEditName, editName);
+            aplicarListeners(inputEditCidade, editCidade);
+            aplicarListeners(inputEditAdress, editAdress);
+        });
+    });
 }
+
+
 
 
 box.forEach(element => {
