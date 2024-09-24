@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/style-adm.css">
+    <link rel="stylesheet" href="/css/style-usuarios.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -18,12 +19,10 @@
     
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    
+
     <!-- DataTables JS CDN -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 </head>
-
 <body>
     <div id="menu" class="menu">
 
@@ -34,14 +33,14 @@
             </div>
 
             <ul>
-                <li class="li active">
+                <li class="li">
                     <a href="#" id="botaoDashboard" class="sidebar__link ">
                         <i class="ri-home-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
-                <li class="li ">
+                <li class="li active">
                     <a href="#" id="botaoUsuarios" class="sidebar__link">
                         <i class="ri-user-line"></i>
                         <span>Usuários</span>
@@ -73,63 +72,61 @@
         </div>
     </div>
 
+    <section>
+        <div class="container-fluid">
 
-
-    <div class="container-fluid col-md-12">
-
-        <div class="container-fluid header-container navbar-light bg-light">
-            <div class="row">
-                <div class="col-md-10 header-msg justify-itens-between">
-                    <span>
-                        <h4>Painel de administração</h4>
-                        <i class="ri-list-unordered"></i>
-                    </span>
-
+            <div class="container-fluid header-container navbar-light bg-light">
+                <div class="row">
+                    <div class="col-md-10 header-msg justify-itens-between">
+                        <span>
+                            <h4>Usuarios</h4>
+                            <i class="ri-list-unordered"></i>
+                        </span>
+    
+                    </div>
                 </div>
             </div>
+
+            <div class="container container-tables col-md-10">
+                <div class="row  row-boxes col-md-12 col-12 d-flex flex-column">
+                    <div class="boxes col-md-12 d-flex flex-row" id="boxes">
+
+                        <div class="box col-md-4  col-12 d-flex flex-column" id="idVisualizar">
+                            <div class="values" id="productsValue"><i class="ri-list-view"></i></div>
+                            <div class="box-name" id="box-name"> Visualizar </div>
+
+                        </div>
+                        <div class="box col-md-4  col-12 d-flex flex-column" id="idCadastrar">
+                            <div class="values" id="productsValue"><i class="ri-menu-add-line"></i></div>
+                            <div class="box-name"> Cadastrar</div>
+                        </div>
+                       
+    
+                    </div>
+                </div>
+
+
+                <div class="row-informations col-md-10  col-11">
+                    <div class="informacoes col-md-12 col-12 ">
+                        <div class="titleVoltar" id="voltar"> Voltar</div>
+                    </div>
+                    <!-- <div class="tables">
+    
+                    </div> -->
+    
+                </div>
+
+            </div>
+            
+
+            
         </div>
+    </section>
 
-        <div class="container col-md-10 col-12">
-            <div class="row  row-boxes col-md-12 col-12 d-flex flex-column">
-                <div class="boxes col-md-12 d-flex flex-row" id="boxes">
-
-                    <div class="box col-md-3 col-12 d-flex flex-column" id="idUser">
-                        <div class="box-name"> Usuários</div>
-                        <div class="values" id="userValue"></div>
-                    </div>
-                    <div class="box col-md-3  col-12 d-flex flex-column" id="idProducts">
-                        <div class="box-name"> Produtos</div>
-                        <div class="values" id="productsValue"></div>
-                    </div>
-                    <div class="box col-md-3  col-12 d-flex flex-column" id="idCostumers">
-                        <div class="box-name"> Clientes</div>
-                        <div class="values" id="usersValue">10</div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="row-informations col-md-10  col-11">
-                <div class="informacoes col-md-12 col-12 ">
-                    <div class="titleVoltar" id="voltar"> Voltar</div>
-                    <div class="titleCadastrar" id="cadastrar"> Cadastrar</div>
-                </div>
-                <div class="tables">
-
-                </div>
-
-            </div>
-
-
-
-        </div>
-
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/js/main-adm.js"></script>
     <script src="/js/main-loading.js"></script>
+    <script src="/js/main-usuarios.js"></script>
 
 </body>
-
 </html>

@@ -1,0 +1,36 @@
+.container-tables{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top:20px;
+    height: 100%;
+    
+
+}
+
+.btnCadastrar{
+    height: 300px;
+
+}
+.ri-menu-add-line {
+    font-size: 40px; 
+}
+.ri-list-view{
+    font-size: 40px; 
+
+}
+
+.box-name{
+    padding:0;
+    
+    margin-bottom:30px; 
+}
+
+.boxes{
+    pointer-events: all;
+    
+}
+.boxes.disabled{
+    pointer-events: none;
+    
+}

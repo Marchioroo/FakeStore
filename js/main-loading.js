@@ -12,6 +12,9 @@
   }
 
   // ====================AQUI TERMINA O LOADING AO CLICAR NO BOTÃO SingUp ====================
+
+    // ====================AQUI COMEÇA O LOADING AO CLICAR NO BOTÃO HOME ====================
+
   let home = document.getElementById('home');
   if (home) {
     home.addEventListener('click', () => {
@@ -23,8 +26,37 @@
     });
   }
 
-  // ====================AQUI TERMINA O LOADING AO CLICAR NO BOTÃO SingUp ====================
+  // ====================AQUI TERMINA O LOADING AO CLICAR NO BOTÃO HOME ====================
+
+
+   // ====================AQUI COMEÇA O LOADING AO CLICAR NO BOTÃO dashboard ====================
+
+   let dashboard = document.getElementById('botaoDashboard');
+   if (dashboard) {
+    dashboard.addEventListener('click', () => {
+       setTimeout(() => {
+         window.location.href = "./adm.html";
+       }, 600); // Tempo
+       loadLoadingScreen();
+       processarDados();
+     });
+   }
+   // ====================AQUI TERMINA O LOADING AO CLICAR NO BOTÃO dashboard ====================
  
+    // ====================AQUI COMEÇA O LOADING AO CLICAR NO BOTÃO botaoUsuarios ====================
+
+    let btnUsuarios = document.getElementById('botaoUsuarios');
+    if (btnUsuarios) {
+      btnUsuarios.addEventListener('click', () => {
+        setTimeout(() => {
+          window.location.href = "./usuarios.html";
+        }, 600); // Tempo
+        loadLoadingScreen();
+        processarDados();
+      });
+    }
+    // ====================AQUI TERMINA O LOADING AO CLICAR NO BOTÃO botaoUsuarios ====================
+  
 
 
   // ====================FUNÇÃO PRINCIPAL PARA CHAMAR O ARQUIVO HTML DE LOADING ====================

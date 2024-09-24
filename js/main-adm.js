@@ -40,7 +40,9 @@ function tratarErro(error) {
 function processarDados(data) {
     let dados = data.length;
     console.log(dados);
+
     let productsValue = document.getElementById('productsValue');
+    
     productsValue.innerHTML = dados;
 
 }
@@ -170,9 +172,17 @@ function buscarClientes() {
         .then(processarDados) // Chama a função processarDados com os dados
         .catch(tratarErro);
 
+        
+
+        
+
     function processarDados(data) {
-        console.log(data);
+        let usersValue = document.getElementById('usersValue');
+        console.log(usersValue);
+        usersValue.innerText = data.length;
+
         const tables = document.querySelector('.tables');
+
         tables.classList.add('active');
 
         let tableContent = `
