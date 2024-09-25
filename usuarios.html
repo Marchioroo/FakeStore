@@ -14,6 +14,8 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css">
     
@@ -88,7 +90,7 @@
             </div>
 
             <div class="container container-tables col-md-10">
-                <div class="row  row-boxes col-md-12 col-12 d-flex flex-column">
+                <div class="row row-boxes col-md-12 col-12 d-flex flex-column">
                     <div class="boxes col-md-12 d-flex flex-row" id="boxes">
 
                         <div class="box col-md-4  col-12 d-flex flex-column" id="idVisualizar">
@@ -110,9 +112,33 @@
                     <div class="informacoes col-md-12 col-12 ">
                         <div class="titleVoltar" id="voltar"> Voltar</div>
                     </div>
-                    <!-- <div class="tables">
+                    <div class="tables">
     
-                    </div> -->
+                    </div> 
+
+                    <div class="form col-md-12">
+                        <div class="box1-cadastro disabled col-md-4 col-11">
+            
+                            <form id="cadLoginForm" action="#" method="POST">
+                                <div class="login d-flex flex-column col-md-12 col-12">
+                                    <label for="cadUser">Usuário</label>
+                                    <input type="text" class="cadUser" id="cadUser" required>
+            
+                                    <label for="cadEmail">E-mail</label>
+                                    <input type="email" class="cadEmail" id="cadEmail" required>
+            
+                                    <label for="cadPass">Senha</label>
+                                    <input type="password" class="cadPass" id="cadPass" minlength="4" required>
+            
+                                    <button class="button" type="submit">Cadastrar</button>
+                                    
+                                </div>
+                            </form>
+                            
+                        </div>
+                       
+
+                    </div>
     
                 </div>
 
@@ -125,8 +151,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script src="/js/main-loading.js"></script>
     <script src="/js/main-usuarios.js"></script>
+   
+    
 
 </body>
 </html>
